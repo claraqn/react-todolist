@@ -16,6 +16,9 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          안녕하세요 임혜원입니다.
+          4학년입니다.
+          거지입니다.
         </a>
       </header>
     </div>
