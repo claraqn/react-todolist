@@ -1,2 +1,2 @@
-# react-test
+# react-todolist
 ## react todo list practice
