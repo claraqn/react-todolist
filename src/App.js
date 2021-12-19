@@ -23,15 +23,21 @@ class App extends Component {
 
   handleCreate = () => {
     const { input, todos } = this.state;
+    console.log(todos);
+    console.log(input);
     this.setState({
+      //이 input 은 추가해야할 일을 적는 input 단을 초기화해주는 것
       input: '', //인풋 비우고
       //concat 사용해 새 배열을 만들어 배열에 추가->push 사용은 안됨!
       todos: todos.concat({
         id: this.id++,
-        text: input,
+        // text: input,
+        // 여기서의 input 은 추가된 일
+        text: this.state.input,
         checked: false,
       }),
     });
+    console.log(todos);
   };
 
   handleKeyPress = (e) => {
@@ -61,6 +67,7 @@ class App extends Component {
   handleRemove = (id) => {
     const { todos } = this.state;
     this.setState({
+      // 지워야하는 할일의 id와 일치하지 않으면(지워야할 일이 아니면) filter로 솎아줘서 나온 값들을 todos에 넣어줌
       todos: todos.filter((todo) => todo.id !== id),
     });
   };
@@ -94,5 +101,8 @@ class App extends Component {
     );
   }
 }
+
+// setting.json의 prettier에 prettier.printWidth 를 변경하면 줄바꿈 글자수 변경 가능
+// https://velog.io/@bori9412/React-todolist-1 <= 요 사이트 설명 도움됨
 
 export default App;
